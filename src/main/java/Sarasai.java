@@ -1,18 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLOutput;
+import java.util.*;
 
 public class Sarasai {
 
     private List<Imone> imones = new ArrayList<Imone>();
     private List<Tiekejas> tiekejai = new ArrayList<Tiekejas>();
     private List<Preke> prekes = new ArrayList<Preke>();
-    private List<Saskaitos> saskaitos = new ArrayList<Saskaitos>();
+    private Map<Integer,Saskaitos> saskaitos = new HashMap <Integer, Saskaitos>();
+    private int kiekis = 1;
 
-    public void itraukiaIImoniuSarasa(long imonesKodas, long PVMKodas, String pavadinimas, String adresas, String telefonas) {
+    public void itraukiaIImoniuSarasa(String imonesKodas, String PVMKodas, String pavadinimas, String adresas, String telefonas) {
         imones.add(new Imone(imonesKodas, PVMKodas, pavadinimas, adresas, telefonas));
     }
 
-    public void itraukiaITiekejuSarasa(long imonesKodas, long PVMKodas, String pavadinimas, String adresas, String telefonas) {
+    public void itraukiaITiekejuSarasa(String imonesKodas, String PVMKodas, String pavadinimas, String adresas, String telefonas) {
         tiekejai.add(new Tiekejas(imonesKodas, PVMKodas, pavadinimas, adresas, telefonas));
     }
 
@@ -20,56 +21,81 @@ public class Sarasai {
         prekes.add(new Preke(knyga, kaina));
     }
 
-    public void itraukiaISaskaituSarasa(int saskNr) {
-        saskaitos.add(new Saskaitos(saskNr));
+    public void itraukiaISaskaituSarasa(int saskNr, Saskaitos saskaita) {
+        saskaitos.put(saskNr,saskaita);
     }
 
-    public String surandaPrekePagalPavadinima (String pavadinimas){
+    public Preke surandaPrekePagalPavadinima (String pavadinimas){
 
-        Preke laikinas = new Preke("pavadinimas",0);
+        Preke laikinas = new Preke("",0);
         for (Preke preke: prekes) {
-           if (preke.getPavadinimas()==pavadinimas) {
-               return laikinas.toString(preke);
+           if (preke.getPavadinimas().contains(pavadinimas)) {
+               return laikinas;
            }
         } return null;
     }
 
-    public String surandaPrekePagalKaina (Double kaina){
+    public Preke surandaPrekePagalKaina (Double kaina){
 
-        Preke laikinas = new Preke("pavadinimas",0);
+        Preke laikinas = new Preke("",0);
         for (Preke preke: prekes) {
             if (preke.getKaina()==kaina) {
-                return laikinas.toString(preke);
+                return laikinas;
             }
         } return null;
     }
 
-    public String surandaImonePagalPavadinima (String pavadinimas){
+    public Imone surandaImonePagalPavadinima (String pavadinimas){
 
-        Imone laikinas = new Imone(0,0,"","","");
+        Imone laikinas = new Imone("","","","","");
         for (Imone imone: imones) {
-            if (imone.getPavadinimas()==pavadinimas) {
-                return laikinas.toString(imone);
+            if (imone.getPavadinimas().contains(pavadinimas)) {
+                return laikinas;
             }
         } return null;
     }
 
-    public String surandaImonePagalImonesKoda (Long imonesKodas){
-        Imone laikinas = new Imone(0,0,"","","");
+    public Imone surandaImonePagalImonesKoda (String imonesKodas){
+        Imone laikinas = new Imone("","","","","");
         for (Imone imone: imones) {
-            if (imone.getImonesKodas()==imonesKodas) {
-                return laikinas.toString(imone);
+            if (imone.getImonesKodas().contains(imonesKodas)) {
+                return laikinas;
             }
         } return null;
     }
 
-    public String surandaImonePagalImonesPVMKoda (Long PVMKodas){
-        Imone laikinas = new Imone(0,0,"","","");
+    public Imone surandaImonePagalImonesPVMKoda (String PVMKodas){
+        Imone laikinas = new Imone("","","","","");
         for (Imone imone: imones) {
-            if (imone.getPVMKodas()==PVMKodas) {
-                return laikinas.toString(imone);
+            if (imone.getPVMKodas().contains(PVMKodas)) {
+                return laikinas;
             }
         } return null;
     }
 
+    public void randaSaskaitaSarase(int saskNr) {
+        saskaitos.get(saskNr);
+    }
+
+    public double prekesKaina (String pavadinimas){
+        int counter=0;
+        for (Preke preke: prekes) {
+            counter++;
+            if (preke.getPavadinimas().contains(pavadinimas)) {
+                return 0;
+            }return 0;
+        } return prekes.get(counter).kaina;
+
+    }
+
+    public void spausdinaSaskaita (String pavadinimas){
+
+        Sarasai pateikejas = new Sarasai();
+        Imone pirkejas = pateikejas.surandaImonePagalPavadinima(pavadinimas);
+        Preke knyga = pateikejas.surandaPrekePagalPavadinima(pavadinimas);
+
+
+        double suma = kiekis * prekesKaina(pavadinimas);
+        System.out.println(knyga.toString(knyga) );
+    }
 }

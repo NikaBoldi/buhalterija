@@ -1,15 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Imone extends Sarasai{
 
-    private long imonesKodas = 0;
-    private long PVMKodas = 0;
+    private String imonesKodas = "";
+    private String PVMKodas = "";
     private String pavadinimas = "";
     private String adresas = "";
     private String telefonas = "";
 
-    public Imone (long imonesKodas, long PVMKodas, String pavadinimas, String adresas, String telefonas){
+    public Imone (String imonesKodas, String PVMKodas, String pavadinimas, String adresas, String telefonas){
         this.imonesKodas = imonesKodas;
         this.PVMKodas = PVMKodas;
         this.pavadinimas = pavadinimas;
@@ -17,11 +14,11 @@ public class Imone extends Sarasai{
         this.telefonas = telefonas;
     }
 
-    public long getImonesKodas() {
+    public String getImonesKodas() {
         return imonesKodas;
     }
 
-    public long getPVMKodas() {
+    public String getPVMKodas() {
         return PVMKodas;
     }
 
@@ -38,6 +35,6 @@ public class Imone extends Sarasai{
     }
 
     public String toString (Imone imone){
-        return imone.pavadinimas +" Im. kodas"+ Long.toString(imone.imonesKodas) + ", "+ imone.adresas +  ", PVM kodas "+Long.toString(imone.PVMKodas) + " tel.: "+imone.telefonas;
+        return imone.pavadinimas +" Im. kodas"+ imone.imonesKodas + ", "+ imone.adresas +  ", PVM kodas "+imone.PVMKodas + " tel.: "+imone.telefonas;
     }
 }

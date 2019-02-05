@@ -2,7 +2,7 @@ public class Preke extends Sarasai{
 
     private String pavadinimas = "";
     private int kiekis = 0;
-    private double kaina = 0.0;
+    protected double kaina = 0.0;
 
     public Preke(String pavadinimas, double kaina) {
         this.pavadinimas = pavadinimas;

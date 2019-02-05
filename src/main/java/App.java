@@ -2,6 +2,9 @@ public class App {
     public static void main(String[] args) {
 
         Sarasai naujas = new Sarasai();
+        Preke knyga = new Preke("Naujas", 90);
+
+
 
         naujas.itraukiaIPrekiuSarasa("Aldonis",45);
         naujas.itraukiaIPrekiuSarasa("Gegute",5.6);
@@ -10,11 +13,13 @@ public class App {
         naujas.itraukiaIPrekiuSarasa("1984",60);
         naujas.itraukiaIPrekiuSarasa("Vienetas aštuoniese",0.85);
 
-        naujas.itraukiaIImoniuSarasa(345553455556654L, 487658346573465L, "Aleliuja", "Zemynos g. 45-76, Vilnius", " tel 83574588484");
+        naujas.itraukiaIImoniuSarasa("345553455556654", "487658346573465", "Aleliuja", "Zemynos g. 45-76, Vilnius", " tel 83574588484");
+        naujas.itraukiaITiekejuSarasa("75","56356334636","Neskolingas"," keistos gatves 67 namas", "8324");
 
-        naujas.itraukiaITiekejuSarasa(75,56356334636L,"Neskolingas"," keistos gatves 67 namas", "8324");
-     //   System.out.println(naujas.surandaPrekePagalPavadinima("Vienetas aštuoniese"));
       //  System.out.println(naujas.surandaPrekePagalKaina(5.6));
-        System.out.println(naujas.surandaImonePagalImonesKoda(345553455556654L));
+
+        naujas.spausdinaSaskaita("ut");
+
+
     }
 }
