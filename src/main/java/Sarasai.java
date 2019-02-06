@@ -82,9 +82,9 @@ public class Sarasai {
         for (Preke preke: prekes) {
             counter++;
             if (preke.getPavadinimas().contains(pavadinimas)) {
-                return 0;
+                return preke.kaina;
             }return 0;
-        } return prekes.get(counter).kaina;
+        } return 0;
 
     }
 
@@ -96,6 +96,6 @@ public class Sarasai {
 
 
         double suma = kiekis * prekesKaina(pavadinimas);
-        System.out.println(knyga.toString(knyga) );
+        System.out.println(suma );
     }
 }
