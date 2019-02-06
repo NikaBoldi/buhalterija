@@ -7,7 +7,9 @@ public class Sarasai {
     private List<Tiekejas> tiekejai = new ArrayList<Tiekejas>();
     private List<Preke> prekes = new ArrayList<Preke>();
     private Map<Integer,Saskaitos> saskaitos = new HashMap <Integer, Saskaitos>();
-    private int kiekis = 1;
+    private List<Preke> prekiuSarasas = new ArrayList<Preke>();
+    private List<Imone> imoniuSarasas = new ArrayList<Imone>();
+    private int saskaitosNr =0;
 
     public void itraukiaIImoniuSarasa(String imonesKodas, String PVMKodas, String pavadinimas, String adresas, String telefonas) {
         imones.add(new Imone(imonesKodas, PVMKodas, pavadinimas, adresas, telefonas));
@@ -25,77 +27,64 @@ public class Sarasai {
         saskaitos.put(saskNr,saskaita);
     }
 
-    public Preke surandaPrekePagalPavadinima (String pavadinimas){
-
-        Preke laikinas = new Preke("",0);
+    public List surandaPrekePagalPavadinima (String pavadinimas){
         for (Preke preke: prekes) {
            if (preke.getPavadinimas().contains(pavadinimas)) {
-               return laikinas;
+               prekiuSarasas.add(preke);
            }
-        } return null;
+        }return prekiuSarasas;
     }
 
-    public Preke surandaPrekePagalKaina (Double kaina){
-
-        Preke laikinas = new Preke("",0);
+    public List surandaPrekePagalKaina (double kaina){
         for (Preke preke: prekes) {
-            if (preke.getKaina()==kaina) {
-                return laikinas;
+            if (preke.getKaina() == kaina) {
+                prekiuSarasas.add(preke);
             }
-        } return null;
+        }return prekiuSarasas;
     }
 
-    public Imone surandaImonePagalPavadinima (String pavadinimas){
-
-        Imone laikinas = new Imone("","","","","");
+    public List surandaImonePagalPavadinima (String pavadinimas){
         for (Imone imone: imones) {
             if (imone.getPavadinimas().contains(pavadinimas)) {
-                return laikinas;
+                imoniuSarasas.add(imone);
             }
-        } return null;
+        } return imoniuSarasas;
     }
 
-    public Imone surandaImonePagalImonesKoda (String imonesKodas){
-        Imone laikinas = new Imone("","","","","");
-        for (Imone imone: imones) {
+    public List surandaImonePagalImonesKoda (String imonesKodas){
+         for (Imone imone: imones) {
             if (imone.getImonesKodas().contains(imonesKodas)) {
-                return laikinas;
+                imoniuSarasas.add(imone);
             }
-        } return null;
+         } return imoniuSarasas;
     }
 
-    public Imone surandaImonePagalImonesPVMKoda (String PVMKodas){
-        Imone laikinas = new Imone("","","","","");
-        for (Imone imone: imones) {
+    public List surandaImonePagalImonesPVMKoda (String PVMKodas){
+         for (Imone imone: imones) {
             if (imone.getPVMKodas().contains(PVMKodas)) {
-                return laikinas;
+                imoniuSarasas.add(imone);
             }
-        } return null;
-    }
-
-    public void randaSaskaitaSarase(int saskNr) {
-        saskaitos.get(saskNr);
+         } return imoniuSarasas;
     }
 
     public double prekesKaina (String pavadinimas){
-        int counter=0;
         for (Preke preke: prekes) {
-            counter++;
             if (preke.getPavadinimas().contains(pavadinimas)) {
-                return preke.kaina;
+                return preke.getKaina();
             }return 0;
         } return 0;
-
     }
 
-    public void spausdinaSaskaita (String pavadinimas){
+    public void spausdinaSaskaita (Imone imone, Preke preke, int kiekis){
 
-        Sarasai pateikejas = new Sarasai();
-        Imone pirkejas = pateikejas.surandaImonePagalPavadinima(pavadinimas);
-        Preke knyga = pateikejas.surandaPrekePagalPavadinima(pavadinimas);
+        imone.getPavadinimas();
+        imone.getImonesKodas();
+        imone.getPVMKodas();
+        imone.getAdresas();
+        preke.getPavadinimas();
+        preke.getKaina();
 
-
-        double suma = kiekis * prekesKaina(pavadinimas);
-        System.out.println(suma );
+        double suma = kiekis * preke.getKaina();
+        itraukiaISaskaituSarasa(saskaitosNr++, new Saskaitos(imone,kiekis,"",preke));
     }
 }
