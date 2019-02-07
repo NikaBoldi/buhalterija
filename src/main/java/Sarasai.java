@@ -43,6 +43,25 @@ public class Sarasai {
         }return prekiuSarasas;
     }
 
+   public Preke keiciaPrekesKaina (Preke preke, double naujaKaina){
+        int counter =0;
+           for (int i = 0; i< prekes.size();i++) {
+               if (!prekes.get(i).equals(preke)) {
+                   counter++;
+               } break;
+           }
+           Preke good = new Preke(preke.getPavadinimas(),naujaKaina);
+        return prekes.set(counter-1,good);
+   }
+
+    public void salinaPreke (Preke preke){
+        prekes.remove(preke);
+    }
+
+    public Saskaitos surandaSaskaitaPagalNr (int saskNr){
+         return   saskaitos.get(saskNr);
+    }
+
     public List surandaImonePagalPavadinima (String pavadinimas){
         for (Imone imone: imones) {
             if (imone.getPavadinimas().contains(pavadinimas)) {
@@ -67,14 +86,6 @@ public class Sarasai {
          } return imoniuSarasas;
     }
 
-    public double prekesKaina (String pavadinimas){
-        for (Preke preke: prekes) {
-            if (preke.getPavadinimas().contains(pavadinimas)) {
-                return preke.getKaina();
-            }return 0;
-        } return 0;
-    }
-
     public void spausdinaSaskaita (Imone imone, Preke preke, int kiekis){
 
         imone.getPavadinimas();
@@ -85,6 +96,6 @@ public class Sarasai {
         preke.getKaina();
 
         double suma = kiekis * preke.getKaina();
-        itraukiaISaskaituSarasa(saskaitosNr++, new Saskaitos(imone,kiekis,"",preke));
+            itraukiaISaskaituSarasa(++saskaitosNr, new Saskaitos(imone,kiekis,"",preke, suma));
     }
 }

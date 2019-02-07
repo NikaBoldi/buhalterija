@@ -35,7 +35,6 @@ public class Imone extends Sarasai{
     }
 
     public String toString (Imone imone){
-        System.out.println(imone.pavadinimas +" Im. kodas"+ imone.imonesKodas + ", "+ imone.adresas +  ", PVM kodas "+imone.PVMKodas + " tel.: "+imone.telefonas);
-        return imone.pavadinimas +" Im. kodas"+ imone.imonesKodas + ", "+ imone.adresas +  ", PVM kodas "+imone.PVMKodas + " tel.: "+imone.telefonas;
+         return imone.pavadinimas +" Im. kodas "+ imone.imonesKodas + ", "+ imone.adresas +  ", PVM kodas "+imone.PVMKodas + " tel.: "+imone.telefonas;
     }
 }
