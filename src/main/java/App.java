@@ -26,17 +26,23 @@ public class App {
         naujas.spausdinaSaskaita(firm,knyga,106);
         naujas.spausdinaSaskaita(firm,knyga,1600);
         sask = naujas.surandaSaskaitaPagalNr(1);
-        prekytes = naujas.surandaPrekePagalPavadinima("");
+        prekytes = naujas.surandaPrekePagalPavadinima("Preambule");
         for (int i = 0; i< prekytes.size();i++){
-            System.out.println(prekytes.get(i).toString(prekytes.get(i)));
+     //       System.out.println(prekytes.get(i).toString(prekytes.get(i)));
             knyga = prekytes.get(i);
         }
   //      System.out.println(sask.toString(sask));
 
 
         naujas.salinaPreke(knyga);
+        System.out.println();
         prekytes = naujas.surandaPrekePagalPavadinima("");
-        System.out.println(prekytes.get(prekytes.size()-1).toString(prekytes.get(prekytes.size()-1)));
+ //       System.out.println(prekytes.get(prekytes.size()-1).toString(prekytes.get(prekytes.size()-1)));
+
+        System.out.println();
+        for (int i = 0; i< prekytes.size();i++){
+            System.out.println(prekytes.get(i).toString(prekytes.get(i)));
+        }
 
     }
 }

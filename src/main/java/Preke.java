@@ -27,5 +27,4 @@ public class Preke extends Sarasai {
     public String toString(Preke preke) {
         return preke.pavadinimas + " " + Double.toString(preke.kaina) + " Eur";
     }
-
 }

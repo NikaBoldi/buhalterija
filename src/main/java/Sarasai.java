@@ -28,6 +28,7 @@ public class Sarasai {
     }
 
     public List surandaPrekePagalPavadinima (String pavadinimas){
+
         for (Preke preke: prekes) {
            if (preke.getPavadinimas().contains(pavadinimas)) {
                prekiuSarasas.add(preke);
@@ -51,11 +52,28 @@ public class Sarasai {
                } break;
            }
            Preke good = new Preke(preke.getPavadinimas(),naujaKaina);
+       if (prekiuSarasas.contains(preke)){
+           prekiuSarasas.set(counter-1,good);
+       }
         return prekes.set(counter-1,good);
    }
 
     public void salinaPreke (Preke preke){
         prekes.remove(preke);
+        if (prekiuSarasas.contains(preke)){
+            prekiuSarasas.remove(preke);
+        }
+    }
+
+    public Saskaitos keiciaSaskaita (int saskNr, double naujaKaina, int naujasKiekis, Imone naujaImone, Preke naujaPreke){
+        Saskaitos laikina = saskaitos.get(saskNr);
+        laikina = new Saskaitos(naujaImone,naujasKiekis,"",naujaPreke, naujaKaina*naujasKiekis);
+        saskaitos.put(saskNr,laikina);
+       return laikina;
+    }
+
+    public void salinaSaskaita (Saskaitos saskaita){
+        saskaitos.remove(saskaita);
     }
 
     public Saskaitos surandaSaskaitaPagalNr (int saskNr){
