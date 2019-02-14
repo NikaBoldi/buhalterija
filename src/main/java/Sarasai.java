@@ -6,7 +6,7 @@ public class Sarasai {
     private List<Imone> imones = new ArrayList<Imone>();
     private List<Tiekejas> tiekejai = new ArrayList<Tiekejas>();
     protected List<Preke> prekes = new ArrayList<Preke>();
-    private Map<Integer,Saskaitos> saskaitos = new HashMap <Integer, Saskaitos>();
+    protected Map<Integer,Saskaitos> saskaitos = new HashMap <Integer, Saskaitos>();
     private List<Preke> prekiuSarasas = new ArrayList<Preke>();
     private List<Imone> imoniuSarasas = new ArrayList<Imone>();
     private int saskaitosNr =0;
