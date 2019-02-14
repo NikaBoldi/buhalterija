@@ -3,13 +3,13 @@ import java.util.*;
 
 public class Sarasai {
 
-    private List<Imone> imones = new ArrayList<Imone>();
-    private List<Tiekejas> tiekejai = new ArrayList<Tiekejas>();
+    protected List<Imone> imones = new ArrayList<Imone>();
+    protected List<Tiekejas> tiekejai = new ArrayList<Tiekejas>();
     protected List<Preke> prekes = new ArrayList<Preke>();
     protected Map<Integer,Saskaitos> saskaitos = new HashMap <Integer, Saskaitos>();
-    private List<Preke> prekiuSarasas = new ArrayList<Preke>();
-    private List<Imone> imoniuSarasas = new ArrayList<Imone>();
-    private int saskaitosNr =0;
+    protected List<Preke> prekiuSarasas = new ArrayList<Preke>();
+    protected List<Imone> imoniuSarasas = new ArrayList<Imone>();
+    protected int saskaitosNr =0;
 
     public void itraukiaIImoniuSarasa(String imonesKodas, String PVMKodas, String pavadinimas, String adresas, String telefonas) {
         imones.add(new Imone(imonesKodas, PVMKodas, pavadinimas, adresas, telefonas));
@@ -37,6 +37,10 @@ public class Sarasai {
     }
 
     public List surandaPrekePagalKaina (double kaina){
+
+        itraukiaIPrekiuSarasa("1984",60);
+        itraukiaIPrekiuSarasa("Vienetas astuoniese",0.85);
+
         for (Preke preke: prekes) {
             if (preke.getKaina() == kaina) {
                 prekiuSarasas.add(preke);
@@ -66,8 +70,7 @@ public class Sarasai {
     }
 
     public Saskaitos keiciaSaskaita (int saskNr, double naujaKaina, int naujasKiekis, Imone naujaImone, Preke naujaPreke){
-        Saskaitos laikina = saskaitos.get(saskNr);
-        laikina = new Saskaitos(naujaImone,naujasKiekis,"",naujaPreke, naujaKaina*naujasKiekis);
+        Saskaitos laikina = new Saskaitos(naujaImone,naujasKiekis,"",naujaPreke, naujaKaina*naujasKiekis);
         saskaitos.put(saskNr,laikina);
        return laikina;
     }

@@ -20,7 +20,9 @@ public class App {
 
         naujas.itraukiaIImoniuSarasa("345553455556654", "487658346573465", "Algebra", "Zemynos g. 45-76, Vilnius", " tel 83574588484");
         naujas.itraukiaITiekejuSarasa("75","56356334636","Neskolingas"," keistos gatves 67 namas", "8324");
+
         naujas.keiciaPrekesKaina(knyga,300);
+
         naujas.spausdinaSaskaita(firm,knyga,16);
         firm = new Imone ("5345435","45778687686","Turbo diena","Veju 7878-9;","456456456");
         naujas.spausdinaSaskaita(firm,knyga,106);
@@ -38,13 +40,13 @@ public class App {
         System.out.println();
 
         for (int i = 1; i<= naujas.saskaitos.size();i++){
-            System.out.println(naujas.surandaSaskaitaPagalNr(i).toString(naujas.surandaSaskaitaPagalNr(i)));
+            System.out.println("sask. nr. "+ i + " " + naujas.surandaSaskaitaPagalNr(i).toString(naujas.surandaSaskaitaPagalNr(i)));
         }
 
         naujas.keiciaSaskaita(1,44440,50,firm,knyga);
         System.out.println();
         for (int i = 1; i<= naujas.saskaitos.size();i++){
-            System.out.println(naujas.surandaSaskaitaPagalNr(i).toString(naujas.surandaSaskaitaPagalNr(i)));
+            System.out.println("sask. nr. "+ i + " " + naujas.surandaSaskaitaPagalNr(i).toString(naujas.surandaSaskaitaPagalNr(i)));
         }
     }
 }
