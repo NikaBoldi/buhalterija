@@ -1,14 +1,9 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class App {
 
-    public static void main(String ... args) {
+	public static void main(String... args) {
 
-        Skeneris scan = new Skeneris();
-        scan.randaSkaiciu();
-        }
-    }
-
+		Buhalterija scan = new Buhalterija(new SwingUI());
+		scan.randaSkaiciu();
+	}
+}
