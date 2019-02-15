@@ -1,4 +1,4 @@
-public class Tiekejas extends Sarasai{
+public class Tiekejas{
 
     private String imonesKodas = "";
     private String PVMKodas = "";
@@ -16,5 +16,25 @@ public class Tiekejas extends Sarasai{
 
     public String toString (Tiekejas tiekejas){
         return tiekejas.pavadinimas +" Im. kodas"+ tiekejas.imonesKodas + ", "+ tiekejas.adresas +  ", PVM kodas "+tiekejas.PVMKodas + " tel.: "+tiekejas.telefonas;
+    }
+
+    public String getImonesKodas() {
+        return imonesKodas;
+    }
+
+    public String getPVMKodas() {
+        return PVMKodas;
+    }
+
+    public String getPavadinimas() {
+        return pavadinimas;
+    }
+
+    public String getAdresas() {
+        return adresas;
+    }
+
+    public String getTelefonas() {
+        return telefonas;
     }
 }

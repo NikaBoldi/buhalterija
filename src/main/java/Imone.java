@@ -1,4 +1,4 @@
-public class Imone extends Sarasai{
+public class Imone {
 
     private String imonesKodas = "";
     private String PVMKodas = "";

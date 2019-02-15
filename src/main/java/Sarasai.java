@@ -36,17 +36,6 @@ public class Sarasai {
         }return prekiuSarasas;
     }
 
-    public List surandaPrekePagalKaina (double kaina){
-
-        itraukiaIPrekiuSarasa("1984",60);
-        itraukiaIPrekiuSarasa("Vienetas astuoniese",0.85);
-
-        for (Preke preke: prekes) {
-            if (preke.getKaina() == kaina) {
-                prekiuSarasas.add(preke);
-            }
-        }return prekiuSarasas;
-    }
 
    public Preke keiciaPrekesKaina (Preke preke, double naujaKaina){
         int counter =0;
@@ -89,22 +78,6 @@ public class Sarasai {
                 imoniuSarasas.add(imone);
             }
         } return imoniuSarasas;
-    }
-
-    public List surandaImonePagalImonesKoda (String imonesKodas){
-         for (Imone imone: imones) {
-            if (imone.getImonesKodas().contains(imonesKodas)) {
-                imoniuSarasas.add(imone);
-            }
-         } return imoniuSarasas;
-    }
-
-    public List surandaImonePagalImonesPVMKoda (String PVMKodas){
-         for (Imone imone: imones) {
-            if (imone.getPVMKodas().contains(PVMKodas)) {
-                imoniuSarasas.add(imone);
-            }
-         } return imoniuSarasas;
     }
 
     public void spausdinaSaskaita (Imone imone, Preke preke, int kiekis){

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Saskaitos extends Sarasai{
+public class Saskaitos {
 
     private String data;
     private Imone imone;
@@ -20,5 +20,29 @@ public class Saskaitos extends Sarasai{
 
     public String toString(Saskaitos saskaita) {
         return saskaita.imone.toString(imone) + " " + saskaita.preke.toString(preke) + " " + " data " + Integer.toString(kiekis) + Double.toString(saskaita.suma) + " Eur";
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public Imone getImone() {
+        return imone;
+    }
+
+    public Preke getPreke() {
+        return preke;
+    }
+
+    public double getSuma() {
+        return suma;
+    }
+
+    public int getKiekis() {
+        return kiekis;
+    }
+
+    public List<Integer> getNumeriai() {
+        return numeriai;
     }
 }

@@ -1,6 +1,6 @@
 import java.lang.reflect.Array;
 
-public class Preke extends Sarasai {
+public class Preke {
 
     protected String pavadinimas = "";
     protected double kaina = 0.0;
@@ -21,4 +21,5 @@ public class Preke extends Sarasai {
     public String toString(Preke preke) {
         return preke.pavadinimas + " " + Double.toString(preke.kaina) + " Eur";
     }
+
 }
